@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spin & Listen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <header>
+    <div class="logo">SPIN<span>&</span>LISTEN</div>
+    <p class="tagline">Fate decides what you hear next</p>
+  </header>
+
+  <main>
+
+    <!-- LEFT: Music Player -->
+    <section class="panel music-panel">
+      <div class="panel-label">MUSIC PLAYER</div>
+
+      <!-- Album Art / Visualizer -->
+      <div class="album-art" id="albumArt">
+        <div class="art-rings">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+        </div>
+        <div class="art-icon" id="artIcon">♪</div>
+      </div>
+
+      <!-- Track Info -->
+      <div class="track-info">
+        <div class="track-title" id="trackTitle">No track selected</div>
+        <div class="track-artist" id="trackArtist">—</div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-wrap">
+        <span class="time-label" id="timeElapsed">0:00</span>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
+        <span class="time-label" id="timeDuration">0:00</span>
+      </div>
+
+      <!-- Hidden audio element -->
+      <audio id="audioPlayer"></audio>
+
+      <!-- Controls -->
+      <div class="player-controls">
+        <button class="ctrl-btn" id="prevBtn" title="Previous">⏮</button>
+        <button class="ctrl-btn play-btn" id="playBtn" title="Play / Pause">▶</button>
+        <button class="ctrl-btn" id="nextBtn" title="Next">⏭</button>
+      </div>
+
+      <!-- Volume -->
+      <div class="volume-row">
+        <span class="vol-icon">🔈</span>
+        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.02" value="0.8"/>
+        <span class="vol-icon">🔊</span>
+      </div>
+
+      <!-- Playlist -->
+      <div class="editor">
+        <div class="editor-header">
+          <span>Playlist</span>
+          <span class="track-count" id="trackCount">0 tracks</span>
+        </div>
+        <div class="sections-list" id="playlist"></div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Roulette Wheel -->
+    <section class="panel wheel-panel">
+      <div class="panel-label">ROULETTE WHEEL</div>
+
+      <div class="wheel-container">
+        <div class="wheel-pointer">▼</div>
+        <canvas id="wheelCanvas" width="420" height="420"></canvas>
+        <div class="wheel-center-dot"></div>
+      </div>
+
+      <button class="spin-btn" id="spinBtn">SPIN</button>
+
+      <div class="result-display" id="resultDisplay">
+        <span id="resultText">—</span>
+      </div>
+
+      <!-- Sections Editor -->
+      <div class="editor">
+        <div class="editor-header">
+          <span>Wheel Sections</span>
+          <button class="add-btn" id="addSectionBtn">＋ Add Section</button>
+        </div>
+        <div class="sections-list" id="sectionsList"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
